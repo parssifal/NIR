@@ -49,6 +49,7 @@ CREATE TABLE IF NOT EXISTS student
 CREATE TABLE IF NOT EXISTS test
 (
   testid INT NOT NULL,
+  test_name varchar (100) NOT NULL, 
   date_start DATE NOT NULL,
   time INTERVAL HOUR TO SECOND NOT NULL,
   date_end DATE NOT NULL,
@@ -78,12 +79,12 @@ CREATE TABLE IF NOT EXISTS result
   FOREIGN KEY (testid) REFERENCES test(testid)
 );
 
-CREATE TABLE IF NOT EXISTS group_module
+CREATE TABLE IF NOT EXISTS group_test
 (
-  group_moduleid INT NOT NULL,
+  group_testid INT NOT NULL,
   groupsid INT NOT NULL,
   testid INT NOT NULL,
-  PRIMARY KEY (group_moduleid),
+  PRIMARY KEY (group_testid),
   FOREIGN KEY (groupsid) REFERENCES groupsid(groupsid),
   FOREIGN KEY (testid) REFERENCES test(testid)
 );
