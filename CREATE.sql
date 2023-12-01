@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS student
   FOREIGN KEY (groupsid) REFERENCES groups(groupsid)
 );
 
-CREATE TABLE IF NOT EXISTS test
+CREATE TABLE IF NOT EXISTS tests
 (
   testid INT NOT NULL,
   test_name varchar (100) NOT NULL, 
