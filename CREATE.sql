@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS result
   time_start TIMESTAMP NOT NULL,
   time_end  TIMESTAMP NOT NULL,
   resultid INT NOT NULL,
-  sum_grade FLOAT NOT NULL,
+  sum_grade INT NOT NULL,
   studentid INT NOT NULL,
   testid INT NOT NULL,
   PRIMARY KEY (resultid),
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS task
   task_name VARCHAR(100) NOT NULL,
   answer JSONB NOT NULL,
   data JSONB NOT NULL,
-  grade FLOAT NOT NULL,
+  grade INT NOT NULL,
   moduleid INT NOT NULL,
   PRIMARY KEY (taskid),
   FOREIGN KEY (moduleid) REFERENCES module(moduleid)
