@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS module
   moduleid INT NOT NULL,
   module_name VARCHAR(100) NOT NULL,
   description VARCHAR(1000) NOT NULL,
-  version FLOAT NOT NULL,
+  version INT NOT NULL,
   PRIMARY KEY (moduleid)
 );
 
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS student
 
 CREATE TABLE IF NOT EXISTS tests
 (
-  testid INT NOT NULL,
+  testsid INT NOT NULL,
   test_name varchar (100) NOT NULL, 
   date_start DATE NOT NULL,
   time INTERVAL HOUR TO SECOND NOT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS tests
 
 CREATE TABLE IF NOT EXISTS teacher_group
 (
-  teacher_groupid INT NOT NULL,
+  teachergroupid INT NOT NULL,
   teacherid INT NOT NULL,
   groupsid INT NOT NULL,
   PRIMARY KEY (teacher_groupid),
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS result
 
 CREATE TABLE IF NOT EXISTS group_test
 (
-  group_testid INT NOT NULL,
+  grouptestid INT NOT NULL,
   groupsid INT NOT NULL,
   testid INT NOT NULL,
   PRIMARY KEY (group_testid),
@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS task
 
 CREATE TABLE IF NOT EXISTS test_task
 (
-  test_taskid INT NOT NULL,
+  testtaskid INT NOT NULL,
   testid INT NOT NULL,
   taskid INT NOT NULL,
   PRIMARY KEY (test_taskid),
