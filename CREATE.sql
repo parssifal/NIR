@@ -77,6 +77,7 @@ CREATE TABLE IF NOT EXISTS task
   answer JSONB NOT NULL,
   data JSONB NOT NULL,
   grade INT NOT NULL,
+  description VARCHAR (1000) NOT NULL,
   PRIMARY KEY (taskid),
 );
 
