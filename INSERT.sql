@@ -2,10 +2,6 @@ InsertIntoUsers = `INSERT INTO users (role, first_name, last_name, email, father
 VALUES ($1, $2, $3, $4, $5, $6, $7, $8);
 `
 
-InsertIntoModule = `INSERT INTO module (module_name, description, version)
-VALUES ($1, $2, $3);
-`
-
 InsertIntoTeacher = `INSERT INTO teacher (usersid)
 VALUES ($1);
 `
@@ -18,7 +14,7 @@ InsertIntoStudent = `INSERT INTO student (usersid, groupsid)
 VALUES ($1, $2);
 `
 
-InsertIntoTest = `INSERT INTO test (date_start, time, date_end)
+InsertIntoTest = `INSERT INTO tests (test_name, date_start, time, date_end)
 VALUES ($1, $2, $3);
 `
 
@@ -30,9 +26,6 @@ InsertIntoResult = `INSERT INTO result (time_start, time_end, sum_grade, student
 VALUES ($1, $2, $3, $4, $5);
 `
 
-InsertIntoGroup_Module = `INSERT INTO group_module (groupsid, testid)
-VALUES ($1, $2);
-`
 InsertIntoTask = `INSERT INTO task (task_name, answer, data, grade, moduleid)
 VALUES ($1, $2, $3, $4, $5);
 `

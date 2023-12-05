@@ -1,4 +1,4 @@
-DeleteFromResult = `DELETE FROM Result
+DeleteFromResult = `DELETE FROM result
 WHERE resultid = $1;
 `
 
@@ -8,10 +8,6 @@ WHERE test_taskid = $1;
 
 DeleteFromTask = `DELETE FROM task
 WHERE taskid = $1;
-`
-
-DeleteFromGroup_Module = `DELETE FROM group_module
-WHERE group_moduleid = $1;
 `
 
 DeleteFromTeacher_Group = `DELETE FROM teacher_group
@@ -32,10 +28,6 @@ WHERE studentid = $1;
 
 DeleteFromGroups = `DELETE FROM groups
 WHERE groupsid = $1;
-`
-
-DeleteFromModule = `DELETE FROM module
-WHERE moduleid = $1;
 `
 
 DeleteFromUsers = `DELETE FROM users

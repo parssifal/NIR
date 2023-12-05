@@ -33,47 +33,27 @@ SET password = $1
 WHERE usersid = $2;
 `
 
-UpdateModule = `UPDATE module
-SET module_name = $1, version = $2, description = $3
-WHERE moduleid = $4;
-`
-
-UpdateModuleName = `UPDATE module
-SET module_name = $1
-WHERE moduleid = $2;
-`
-
-UpdateModuleVersion = `UPDATE module
-SET version = $1
-WHERE moduleid = $2;
-`
-
-UpdateModuleDescription = `UPDATE module
-SET description = $1
-WHERE moduleid = $2;
-`
-
 UpdateGroups = `UPDATE groups
 SET groupname = $1
 WHERE groupsid = $2
 `
 
-UpdateTest = `UPDATE test
-SET date_start = $1, time = $2, date_end = $3
-WHERE testid = $4;
+UpdateTest = `UPDATE tests
+SET test_name = $1, date_start = $2, time = $3, date_end = $4
+WHERE testid = $5;
 `
 
-UpdateTestDateStart = `UPDATE test
+UpdateTestDateStart = `UPDATE tests
 SET date_start = $1
 WHERE testid = $2;
 `
 
-UpdateTestTime = `UPDATE test
+UpdateTestTime = `UPDATE tests
 SET time = $1
 WHERE testid = $2;
 `
 
-UpdateTestDateEnd = `UPDATE test
+UpdateTestDateEnd = `UPDATE tests
 SET date_end = $1
 WHERE testid = $2;
 `

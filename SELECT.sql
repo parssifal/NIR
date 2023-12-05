@@ -1,12 +1,6 @@
 SelectAllFromUsers = `SELECT * FROM users;
 `
 
-SelectAllFromModule = `SELECT * FROM  module;
-`
-
-SelectAllFromGroupModule = `SELECT * FROM group_test;
-`
-
 SelectAllFromTask = `SELECT * FROM task;
 `
 
@@ -28,37 +22,36 @@ SelectAllFromStudent = `SELECT * FROM student;
 SelectAllFromResult = `SELECT * FROM result;
 `
 
-SelectAllFromTest = `SELECT * FROM test;
+SelectAllFromTest = `SELECT * FROM tests;
 `
 
-SelectAllAvailableTestsForUser = `SELECT test.testid, test.test_name, test.date_start, test.date_end
-FROM test
-JOIN group_test ON test.testid = group_test.groupsid
-JOIN student ON group_test.groupsid = student.groupsid
-JOIN users ON student.usersid = users.usersid
-WHERE users.usersid = $1;
+SelectAllAvailableTestsForUser = 
+`SELECT tests.testsid, tests.test_name, tests.date_start, tests.date_end
+FROM tests
 `
 
-SelectAllTasksInTest = `SELECT test.test_name, test.time, task.task_name, task.grade 
-FROM test
-JOIN test_task ON test_task.taskid = test.testid
+SelectAllTasksInTest = 
+`SELECT tests.test_name, tests.time, task.task_name, task.grade 
+FROM tests
+JOIN test_task ON test_task.taskid = tests.testsid
 JOIN task ON test_task.taskid = task.taskid
 GROUP BY test_name
-WHERE test.test_id = $1;
+WHERE tests.testsid = $1;
 `
 
-SelectResultForStudent = `SELECT test.test_name, result.time_start, result.time_end, result.sum_grade
-FROM test
-JOIN result ON test.testid = result.test_id
+SelectResultForStudent = 
+`SELECT tests.test_name, result.time_start, result.time_end, result.sum_grade
+FROM tests
+JOIN result ON tests.testsid = result.test_id
 JOIN student ON result.studentid = student.studentidid
 JOIN users ON student.usersid = users.usersid
 WHERE users.usersid = $1;
 `
 
-SelectDescription&GraphOfTask = `SELECT module.description, task.data
-FROM module
-JOIN task ON module.moduleid = task.moduleid
-WHERE module.moduleid = $1;
+SelectDescription&GraphOfTask = 
+`SELECT task.description, task.data
+FROM task
+WHERE task.taskid = $1;
 `
 
 -- SelectNameAndGroupOfStudent = `SELECT student.studentid, users.first_name, users.last_name, groups.groupsid

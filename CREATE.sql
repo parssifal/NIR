@@ -12,15 +12,6 @@ CREATE TABLE IF NOT EXISTS users
   PRIMARY KEY (usersid)
 );
 
-CREATE TABLE IF NOT EXISTS module
-(
-  moduleid INT NOT NULL,
-  module_name VARCHAR(100) NOT NULL,
-  description VARCHAR(1000) NOT NULL,
-  version INT NOT NULL,
-  PRIMARY KEY (moduleid)
-);
-
 CREATE TABLE IF NOT EXISTS teacher
 (
   teacherid INT NOT NULL,
@@ -79,16 +70,6 @@ CREATE TABLE IF NOT EXISTS result
   FOREIGN KEY (testid) REFERENCES test(testid)
 );
 
-CREATE TABLE IF NOT EXISTS group_test
-(
-  grouptestid INT NOT NULL,
-  groupsid INT NOT NULL,
-  testid INT NOT NULL,
-  PRIMARY KEY (group_testid),
-  FOREIGN KEY (groupsid) REFERENCES groupsid(groupsid),
-  FOREIGN KEY (testid) REFERENCES test(testid)
-);
-
 CREATE TABLE IF NOT EXISTS task
 (
   taskid INT NOT NULL,
@@ -96,9 +77,7 @@ CREATE TABLE IF NOT EXISTS task
   answer JSONB NOT NULL,
   data JSONB NOT NULL,
   grade INT NOT NULL,
-  moduleid INT NOT NULL,
   PRIMARY KEY (taskid),
-  FOREIGN KEY (moduleid) REFERENCES module(moduleid)
 );
 
 CREATE TABLE IF NOT EXISTS test_task
