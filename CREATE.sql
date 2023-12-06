@@ -4,12 +4,13 @@ CREATE TABLE IF NOT EXISTS users
   role VARCHAR(100) NOT NULL,
   first_name VARCHAR(100) NOT NULL,
   last_name VARCHAR(100) NOT NULL,
-  email VARCHAR(100) NOT NULL,
+  email LIKE %@%.% VARCHAR(100) NOT NULL,
   father_name VARCHAR(100) NOT NULL,
   password VARCHAR(100) NOT NULL,
   passwordsalt VARCHAR(6) NOT NULL,
   date_registration DATE NOT NULL,
   PRIMARY KEY (usersid)
+  UNIQUE (email)
 );
 
 CREATE TABLE IF NOT EXISTS teacher
@@ -44,7 +45,7 @@ CREATE TABLE IF NOT EXISTS tests
   date_start DATE NOT NULL,
   time INTERVAL HOUR TO SECOND NOT NULL,
   date_end DATE NOT NULL,
-  PRIMARY KEY (testid)
+  PRIMARY KEY (testsid)
 );
 
 CREATE TABLE IF NOT EXISTS teacher_group
@@ -64,10 +65,10 @@ CREATE TABLE IF NOT EXISTS result
   resultid INT NOT NULL,
   sum_grade INT NOT NULL,
   studentid INT NOT NULL,
-  testid INT NOT NULL,
+  testsid INT NOT NULL,
   PRIMARY KEY (resultid),
   FOREIGN KEY (studentid) REFERENCES student(studentid),
-  FOREIGN KEY (testid) REFERENCES test(testid)
+  FOREIGN KEY (testsid) REFERENCES test(testsid)
 );
 
 CREATE TABLE IF NOT EXISTS task
@@ -84,9 +85,9 @@ CREATE TABLE IF NOT EXISTS task
 CREATE TABLE IF NOT EXISTS test_task
 (
   testtaskid INT NOT NULL,
-  testid INT NOT NULL,
+  testsid INT NOT NULL,
   taskid INT NOT NULL,
   PRIMARY KEY (test_taskid),
-  FOREIGN KEY (testid) REFERENCES test(testid),
+  FOREIGN KEY (testsid) REFERENCES test(testsid),
   FOREIGN KEY (taskid) REFERENCES task(taskid)
 );

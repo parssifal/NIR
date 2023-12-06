@@ -15,7 +15,7 @@ VALUES ($1, $2);
 `
 
 InsertIntoTest = `INSERT INTO tests (test_name, date_start, time, date_end)
-VALUES ($1, $2, $3);
+VALUES ($1, $2, $3, $4);
 `
 
 InsertIntoTeacher_Group = `INSERT INTO teacher_group (teacherid, groupsid)
@@ -26,7 +26,7 @@ InsertIntoResult = `INSERT INTO result (time_start, time_end, sum_grade, student
 VALUES ($1, $2, $3, $4, $5);
 `
 
-InsertIntoTask = `INSERT INTO task (task_name, answer, data, grade, moduleid)
+InsertIntoTask = `INSERT INTO task (task_name, answer, data, grade, description)
 VALUES ($1, $2, $3, $4, $5);
 `
 

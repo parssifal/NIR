@@ -18,8 +18,8 @@ DeleteFromTeacher = `DELETE FROM teacher
 WHERE teacherid = $1;
 `
 
-DeleteFromTest = `DELETE FROM test
-WHERE testid = $1;
+DeleteFromTest = `DELETE FROM tests
+WHERE testsid = $1;
 `
 
 DeleteFromStudent = `DELETE FROM student

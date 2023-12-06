@@ -58,9 +58,14 @@ SET date_end = $1
 WHERE testid = $2;
 `
 
+UpdateTestTestName = `UPDATE tests
+SET test_name = $1
+WHERE testid = $2;
+`
+
 UpdateResult = `UPDATE result
-SET time_start = $1, time_end = $2, sum_grade = $3
-WHERE resultid = $4;
+SET time_start = $1, time_end = $2, sum_grade = $3, studentid = $4, testsid = $5
+WHERE resultid = $6;
 `
 
 UpdateResultTimeStart = `UPDATE result
@@ -78,9 +83,19 @@ SET sum_grade = $1
 WHERE resultid = $2;
 `
 
+UpdateResultStudentId = `UPDATE result
+SET studentid = $1
+WHERE resultid = $2;
+`
+
+UpdateResultTestsId = `UPDATE result
+SET testsid = $1
+WHERE resultid = $2;
+`
+
 UpdateTask = `UPDATE task
-SET task_name = $1, answer = $2, data = $3, grade = $4
-WHERE taskid = $5;
+SET task_name = $1, answer = $2, data = $3, grade = $4, description = $5
+WHERE taskid = $6;
 `
 
 UpdateTaskName = `UPDATE task
@@ -101,4 +116,23 @@ WHERE taskid = $2;
 UpdateTaskGrade =` UPDATE task
 SET grade = $1
 WHERE taskid = $2;
+`
+
+UpdateTaskDescription =` UPDATE task
+SET description = $1
+WHERE taskid = $2;
+`
+UpdateTestTask = `UPDATE test_task
+SET testsid = $1, taskid = $2
+WHERE testtaskid = $3;
+`
+
+UpdateTestTaskTestId = `UPDATE test_task
+SET testsid = $1
+WHERE testtaskid = $2;
+`
+
+UpdateTestTaskTaskId = `UPDATE test_task
+SET taskid = $1
+WHERE testtaskid = $2;
 `
