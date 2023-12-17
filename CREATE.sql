@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS tests
   PRIMARY KEY (testsid)
 );
 
-CREATE TABLE IF NOT EXISTS teacher_group
+CREATE TABLE IF NOT EXISTS teachergroup
 (
   teachergroupid INT NOT NULL,
   teacherid INT NOT NULL,
