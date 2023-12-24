@@ -91,3 +91,12 @@ CREATE TABLE IF NOT EXISTS test_task
   FOREIGN KEY (testsid) REFERENCES test(testsid),
   FOREIGN KEY (taskid) REFERENCES task(taskid)
 );
+
+CREATE TABLE grade
+(
+  gradeid INT NOT NULL,
+  grade INT NOT NULL,
+  resultid INT NOT NULL,
+  PRIMARY KEY (gradeid),
+  FOREIGN KEY (resultid) REFERENCES result(resultid)
+);

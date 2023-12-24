@@ -31,7 +31,7 @@ FROM tests
 `
 
 SelectAllTasksInTest = 
-`SELECT tests.test_name, tests.time, task.task_name, task.grade 
+`SELECT tests.test_name, tests.time, task.task_name, task.max_grade 
 FROM tests
 JOIN test_task ON test_task.taskid = tests.testsid
 JOIN task ON test_task.taskid = task.taskid
@@ -40,11 +40,13 @@ WHERE tests.testsid = $1;
 `
 
 SelectResultForStudent = 
-`SELECT tests.test_name, result.time_start, result.time_end, result.sum_grade
+`SELECT tests.test_name, result.time_start, result.time_end, result.sum_grade, grade.grade
 FROM tests
 JOIN result ON tests.testsid = result.test_id
 JOIN student ON result.studentid = student.studentidid
 JOIN users ON student.usersid = users.usersid
+JOIN grade ON result.resultid = grade.resultid
+GROUP BY test_name
 WHERE users.usersid = $1;
 `
 
