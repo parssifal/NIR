@@ -34,33 +34,33 @@ WHERE usersid = $2;
 `
 
 UpdateGroups = `UPDATE groups
-SET groupname = $1
+SET groupsname = $1
 WHERE groupsid = $2
 `
 
 UpdateTest = `UPDATE tests
 SET test_name = $1, date_start = $2, time = $3, date_end = $4
-WHERE testid = $5;
+WHERE testsid = $5;
 `
 
 UpdateTestDateStart = `UPDATE tests
 SET date_start = $1
-WHERE testid = $2;
+WHERE testsid = $2;
 `
 
 UpdateTestTime = `UPDATE tests
 SET time = $1
-WHERE testid = $2;
+WHERE testsid = $2;
 `
 
 UpdateTestDateEnd = `UPDATE tests
 SET date_end = $1
-WHERE testid = $2;
+WHERE testsid = $2;
 `
 
 UpdateTestTestName = `UPDATE tests
 SET test_name = $1
-WHERE testid = $2;
+WHERE testsid = $2;
 `
 
 UpdateResult = `UPDATE result
@@ -94,7 +94,7 @@ WHERE resultid = $2;
 `
 
 UpdateTask = `UPDATE task
-SET task_name = $1, answer = $2, data = $3, grade = $4, description = $5
+SET task_name = $1, answer = $2, data = $3, max_grade = $4, description = $5
 WHERE taskid = $6;
 `
 
@@ -114,7 +114,7 @@ WHERE taskid = $2;
 `
 
 UpdateTaskGrade =` UPDATE task
-SET grade = $1
+SET max_grade = $1
 WHERE taskid = $2;
 `
 
@@ -135,4 +135,17 @@ WHERE testtaskid = $2;
 UpdateTestTaskTaskId = `UPDATE test_task
 SET taskid = $1
 WHERE testtaskid = $2;
+`
+UpgradeGrade = `UPDATE grade
+SET grade = $1, resultid = $2
+WHERE gradeid = $3;
+`
+UpgradeGradeGrade = `UPDATE grade
+SET grade = $1
+WHERE gradeid = $2;
+`
+
+UpgradeGradeResultId = `UPDATE grade
+SET resultid = $1
+WHERE gradeid = $2;
 `

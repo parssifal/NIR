@@ -3,15 +3,15 @@ WHERE resultid = $1;
 `
 
 DeleteFromTest_Task = `DELETE FROM test_task
-WHERE test_taskid = $1;
+WHERE testtaskid = $1;
 `
 
 DeleteFromTask = `DELETE FROM task
 WHERE taskid = $1;
 `
 
-DeleteFromTeacher_Group = `DELETE FROM teacher_group
-WHERE teacher_groupid = $1;
+DeleteFromTeacher_Group = `DELETE FROM teachergroup
+WHERE teachergroupid = $1;
 `
 
 DeleteFromTeacher = `DELETE FROM teacher

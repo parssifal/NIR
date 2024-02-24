@@ -18,18 +18,21 @@ InsertIntoTest = `INSERT INTO tests (test_name, date_start, time, date_end)
 VALUES ($1, $2, $3, $4);
 `
 
-InsertIntoTeacher_Group = `INSERT INTO teacher_group (teacherid, groupsid)
+InsertIntoTeacher_Group = `INSERT INTO teachergroup (teacherid, groupsid)
 VALUES ($1, $2);
 `
 
-InsertIntoResult = `INSERT INTO result (time_start, time_end, sum_grade, studentid, testid)
+InsertIntoResult = `INSERT INTO result (time_start, time_end, sum_grade, studentid, testsid)
 VALUES ($1, $2, $3, $4, $5);
 `
 
-InsertIntoTask = `INSERT INTO task (task_name, answer, data, grade, description)
+InsertIntoTask = `INSERT INTO task (task_name, answer, data, max_grade, description)
 VALUES ($1, $2, $3, $4, $5);
 `
 
-InsertIntoTest_Task = `INSERT INTO test_task (testid, taskid)
+InsertIntoTest_Task = `INSERT INTO test_task (testsid, taskid)
+VALUES ($1, $2);
+`
+InsertIntoGrade = `INSERT INTO grade (grade, resultid)
 VALUES ($1, $2);
 `
