@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS test_task
   FOREIGN KEY (taskid) REFERENCES task(taskid)
 );
 
-CREATE TABLE grade
+CREATE TABLE IF NOT EXISTS grade
 (
   gradeid SERIAL NOT NULL,
   grade INT NOT NULL,
