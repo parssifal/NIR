@@ -1,35 +1,35 @@
-DeleteFromResult = `DELETE FROM result
-WHERE resultid = $1;
+DeleteFromResult = `delete from result
+where resultid = $1;
 `
 
-DeleteFromTest_Task = `DELETE FROM test_task
-WHERE testtaskid = $1;
+DeleteFromTest_Task = `delete from test_task
+where testtaskid = $1;
 `
 
-DeleteFromTask = `DELETE FROM task
-WHERE taskid = $1;
+DeleteFromTask = `delete from task
+where taskid = $1;
 `
 
-DeleteFromTeacher_Group = `DELETE FROM teachergroup
-WHERE teachergroupid = $1;
+DeleteFromTeacher_Group = `delete from teachergroup
+where teachergroupid = $1;
 `
 
-DeleteFromTeacher = `DELETE FROM teacher
-WHERE teacherid = $1;
+DeleteFromTeacher = `delete from teacher
+where teacherid = $1;
 `
 
-DeleteFromTest = `DELETE FROM tests
-WHERE testsid = $1;
+DeleteFromTest = `delete from tests
+where testsid = $1;
 `
 
-DeleteFromStudent = `DELETE FROM student
-WHERE studentid = $1;
+DeleteFromStudent = `delete from student
+where studentid = $1;
 `
 
-DeleteFromGroups = `DELETE FROM groups
-WHERE groupsid = $1;
+DeleteFromGroups = `delete from groups
+where groupsid = $1;
 `
 
-DeleteFromUsers = `DELETE FROM users
-WHERE usersid = $1; 
+DeleteFromUsers = `delete from users
+where usersid = $1; 
 `
